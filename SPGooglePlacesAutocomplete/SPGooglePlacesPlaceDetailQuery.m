@@ -31,11 +31,12 @@
 
 
 - (NSString *)googleURLString {
-    NSMutableString *url = [NSMutableString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=%@&key=%@",
-                            self.reference, SPBooleanStringForBool(self.sensor), self.key];
+    NSMutableString *url = [NSMutableString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&sensor=%@&key=%@",
+                            self.place_id, SPBooleanStringForBool(self.sensor), self.key];
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
     }
+
     return url;
 }
 
